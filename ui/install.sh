@@ -18,11 +18,11 @@ MCP_BASE_DIR=$OPENSHIFT_CONFIG_DIR
 # Start OpenShift with the current directory as the config dir
 # Using the current directory as the config dir is important for extension development
 # This allows changing of extension files and having them already mounted in the origin container
-oc cluster up --service-catalog --host-config-dir=${OPENSHIFT_CONFIG_DIR} --use-existing-config=true --version='v3.6.0-rc.0'
+# oc cluster up --service-catalog --host-config-dir=${OPENSHIFT_CONFIG_DIR} --use-existing-config=true --version='v3.6.0-rc.0'
 
 # Grant unauthenticated access to the template service broker api
-oc login -u system:admin
-oc adm policy add-cluster-role-to-group system:openshift:templateservicebroker-client system:unauthenticated system:authenticated
+# oc login -u system:admin
+# oc adm policy add-cluster-role-to-group system:openshift:templateservicebroker-client system:unauthenticated system:authenticated
 
 # Enable Extension Development
 sudo chmod 666 $OPENSHIFT_MASTER_CONFIG
@@ -42,7 +42,7 @@ $MOBILE_API_SERVER_INSTALL_SCRIPT
 
 # Grant unauthenticated access to the Mobile API Server
 oc login -u system:admin
-oc adm policy add-cluster-role-to-group mobile-api-caller system:unauthenticated system:anonymous system:authenticated
+# oc adm policy add-cluster-role-to-group mobile-api-caller system:unauthenticated system:anonymous system:authenticated
 
 # Restart openshift to pick up master-config.yaml changes for extensions
 docker restart origin
